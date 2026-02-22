@@ -42,6 +42,11 @@ io.on('connection', (socket) => {
     });
 });
 
+// Basic Health Check Route
+app.get('/', (req, res) => {
+    res.send('<h1>Fawn Signaling Server is awake and running!</h1><p>The WebRTC socket is ready for connections.</p>');
+});
+
 const PORT = process.env.PORT || 3001;
 server.listen(PORT, () => {
     console.log(`Fawn Signaling Server listening on port ${PORT}`);
